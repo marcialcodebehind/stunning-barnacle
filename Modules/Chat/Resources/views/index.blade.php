@@ -18,7 +18,7 @@
 				<!-- BEGIN FORM-->
 				<form action="#" class="form-horizontal form-row-sepe">
 					<chat-log :messages="messages"></chat-log>
-					<chat-composer v-on:messagesent="addMessage"></chat-composer>
+					<chat-composer @messagesent="addMessage"></chat-composer>
 				</form>
 				<!-- END FORM-->
 			</div>

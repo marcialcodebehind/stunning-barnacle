@@ -13,7 +13,6 @@ const { mix } = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
    .js('Modules/Chat/Resources/assets/js/message.js', 'public/js')
-   //.sass('resources/assets/sass/app.scss', 'public/css')
    .scripts([
    		'public/assets/offline_cdnjs/jquery.min.js',
    		'public/assets/offline_cdnjs/jquery-migrate.min.js',
@@ -21,7 +20,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
    		'public/assets/global/plugins/bootstrap/js/bootstrap.min.js',
    		'public/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js',
    		'public/assets/offline_cdnjs/jquery.blockUI.min.js',
-   		'public/assets/global/plugins/jquery.cokie.min.js',
+   		//'public/assets/global/plugins/jquery.cokie.min.js',
    		'public/assets/global/plugins/Uniform-3.0/src/js/jquery.uniform.js'
    	],'public/js/core_plugins.js')
    .scripts([

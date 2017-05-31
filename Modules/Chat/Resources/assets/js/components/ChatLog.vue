@@ -6,6 +6,7 @@
 </template>
 
 <script>
+	Vue.component('chat-message', require('./ChatMessage.vue'));
 	export default { 
 		props:['messages']
 	}
