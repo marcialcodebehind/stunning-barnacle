@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 54);
+/******/ 	return __webpack_require__(__webpack_require__.s = 55);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -201,7 +201,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(51)
+var listToStyles = __webpack_require__(52)
 
 /*
 type StyleObject = {
@@ -412,17 +412,32 @@ function applyToTag (styleElement, obj) {
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-Vue.component('chat-log', __webpack_require__(43));
-Vue.component('chat-composer', __webpack_require__(42));
+Vue.component('chat-log', __webpack_require__(44));
+Vue.component('chat-composer', __webpack_require__(43));
 
 var app = new Vue({
-    el: '#app',
+    el: '#message_app',
     data: {
         messages: [],
-        usersInRoom: []
+        usersInRoom: [],
+        username: username
     },
     methods: {
         addMessage: function addMessage(message) {
+            var cont = $('#chats');
+
+            var getLastPostPos = function getLastPostPos() {
+                var height = 0;
+                cont.find("li.out, li.in").each(function () {
+                    height = height + $(this).outerHeight();
+                });
+                return height + height;
+            };
+
+            cont.find('.scroller').slimScroll({
+                scrollTo: getLastPostPos()
+            });
+
             //Add to existing messages
             this.messages.push(message);
             //Persist to the database
@@ -473,11 +488,22 @@ var app = new Vue({
 /* 28 */,
 /* 29 */,
 /* 30 */,
-/* 31 */
+/* 31 */,
+/* 32 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -499,32 +525,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				this.$emit('messagesent', {
 					message: this.messageText,
 					user: {
-						name: 'Glenn'
+						name: username
 					}
 				});
 				this.messageText = '';
 			}
 		}
 	}
-});
-
-/***/ }),
-/* 32 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-
-Vue.component('chat-message', __webpack_require__(44));
-/* harmony default export */ __webpack_exports__["default"] = ({
-	props: ['messages']
 });
 
 /***/ }),
@@ -540,50 +547,85 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+
+Vue.component('chat-message', __webpack_require__(45));
+/* harmony default export */ __webpack_exports__["default"] = ({
+	props: ['messages']
+});
+
+/***/ }),
+/* 34 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: ['message']
 });
 
 /***/ }),
-/* 34 */,
-/* 35 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(2)();
-exports.push([module.i, "\n.chat-log .chat-message:nth-child(even) {\n\tbackground-color: #ccc;\n}\n.empty {\n\tpadding: 1rem;\n\ttext-align: center;\n}\n", ""]);
-
-/***/ }),
+/* 35 */,
 /* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)();
-exports.push([module.i, "\n.chat-message{\n\tpadding: 1rem;\n}\n.chat-message > p {\n\tmargin-bottom: .5rem;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
 /* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)();
-exports.push([module.i, "\n.chat-composer{\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n}\n.chat-composer input {\n\t-webkit-box-flex:  1;\n\t    -ms-flex:  auto;\n\t        flex:  auto;\n}\n.chat-composer button {\n\tborder-radius: 0;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
-/* 38 */,
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)();
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*.chat-composer{\n\tdisplay: flex;\n}\n\n.chat-composer input {\n\tflex:  auto;\n}\n\n.chat-composer button {\n\tborder-radius: 0;\n}*/\n", ""]);
+
+/***/ }),
 /* 39 */,
 /* 40 */,
 /* 41 */,
-/* 42 */
+/* 42 */,
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(50)
+__webpack_require__(51)
 
 var Component = __webpack_require__(3)(
   /* script */
-  __webpack_require__(31),
+  __webpack_require__(32),
   /* template */
-  __webpack_require__(47),
+  __webpack_require__(48),
   /* scopeId */
   null,
   /* cssModules */
@@ -610,18 +652,18 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(48)
+__webpack_require__(49)
 
 var Component = __webpack_require__(3)(
   /* script */
-  __webpack_require__(32),
+  __webpack_require__(33),
   /* template */
-  __webpack_require__(45),
+  __webpack_require__(46),
   /* scopeId */
   null,
   /* cssModules */
@@ -648,18 +690,18 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(49)
+__webpack_require__(50)
 
 var Component = __webpack_require__(3)(
   /* script */
-  __webpack_require__(33),
+  __webpack_require__(34),
   /* template */
-  __webpack_require__(46),
+  __webpack_require__(47),
   /* scopeId */
   null,
   /* cssModules */
@@ -686,28 +728,20 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "chat-log"
-  }, [_vm._l((_vm.messages), function(message) {
+  }, _vm._l((_vm.messages), function(message) {
     return _c('chat-message', {
       key: message,
       attrs: {
         "message": message
       }
     })
-  }), _vm._v(" "), _c('div', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.messages.length === 0),
-      expression: "messages.length === 0"
-    }],
-    staticClass: "empty"
-  }, [_vm._v("No Message")])], 2)
+  }))
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -718,13 +752,34 @@ if (false) {
 }
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "chat-message"
-  }, [_c('p', [_vm._v(_vm._s(_vm.message.message))]), _vm._v(" "), _c('small', [_vm._v(" - " + _vm._s(_vm.message.user.name))])])
+  }, [_c('li', {
+    staticClass: "out"
+  }, [_c('img', {
+    staticClass: "avatar",
+    attrs: {
+      "alt": "",
+      "src": "assets/admin/layout/img/avatar1.jpg"
+    }
+  }), _vm._v(" "), _c('div', {
+    staticClass: "message"
+  }, [_c('span', {
+    staticClass: "arrow"
+  }), _vm._v(" "), _c('a', {
+    staticClass: "name",
+    attrs: {
+      "href": "javascript:;"
+    }
+  }, [_vm._v("\n\t\t\t" + _vm._s(_vm.message.user.name) + " \n\t\t\t")]), _vm._v(" "), _c('span', {
+    staticClass: "datetime"
+  }, [_vm._v("\n\t\t\tat 20:09 ")]), _vm._v(" "), _c('span', {
+    staticClass: "body"
+  }, [_vm._v("\n\t\t\t\t" + _vm._s(_vm.message.message) + "\n\t\t\t")])])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -735,12 +790,16 @@ if (false) {
 }
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "chat-composer"
+  }, [_c('div', {
+    staticClass: "chat-form"
+  }, [_c('div', {
+    staticClass: "input-cont"
   }, [_c('input', {
     directives: [{
       name: "model",
@@ -748,9 +807,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.messageText),
       expression: "messageText"
     }],
+    staticClass: "form-control",
     attrs: {
       "type": "text",
-      "placeholder": "Type Message..."
+      "placeholder": "Type a message here..."
     },
     domProps: {
       "value": (_vm.messageText)
@@ -765,15 +825,18 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.messageText = $event.target.value
       }
     }
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "btn-cont"
+  }, [_c('span', {
+    staticClass: "arrow"
   }), _vm._v(" "), _c('button', {
-    staticClass: "btn btn-primary",
-    attrs: {
-      "type": "button"
-    },
+    staticClass: "btn blue icn-only",
     on: {
       "click": _vm.sendMessage
     }
-  }, [_vm._v("Send")])])
+  }, [_c('i', {
+    staticClass: "fa fa-check icon-white"
+  })])])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -784,13 +847,13 @@ if (false) {
 }
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(35);
+var content = __webpack_require__(36);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -810,13 +873,13 @@ if(false) {
 }
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(36);
+var content = __webpack_require__(37);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -836,13 +899,13 @@ if(false) {
 }
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(37);
+var content = __webpack_require__(38);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -862,7 +925,7 @@ if(false) {
 }
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports) {
 
 /**
@@ -895,9 +958,9 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 52 */,
 /* 53 */,
-/* 54 */
+/* 54 */,
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(11);

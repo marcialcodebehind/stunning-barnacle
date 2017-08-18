@@ -13,6 +13,7 @@ const { mix } = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
    .js('Modules/Chat/Resources/assets/js/message.js', 'public/js')
+   .js('Modules/Metronic/Resources/assets/js/setting.js', 'public/js')
    .scripts([
    		'public/assets/offline_cdnjs/jquery.min.js',
    		'public/assets/offline_cdnjs/jquery-migrate.min.js',

@@ -19,7 +19,8 @@
 
 <!-- END GLOBAL MANDATORY STYLES -->
 <!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
-<link rel="stylesheet" type="text/css" href="{{asset('assets/global/plugins/select2/select2.css')}}" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css" />
+<!-- <link rel="stylesheet" type="text/css" href="{{asset('assets/global/plugins/select2/select2.css')}}" /> -->
 <!-- END PAGE LEVEL PLUGIN STYLES -->
 
 <!-- BEGIN PAGE STYLES -->
@@ -35,6 +36,7 @@
 <link href="{{asset('assets/admin/layout/css/themes/'.$color.'.css')}}" id="style_color" rel="stylesheet" type="text/css"/>
 <link href="{{asset('assets/admin/layout/css/custom.css')}}" rel="stylesheet" type="text/css"/>
 <link href="{{asset('assets/admin/layout/css/style.css')}}" rel="stylesheet" type="text/css"/>
+@stack('style')
 <!-- END THEME STYLES -->
 <link rel="shortcut icon" href="favicon.ico"/>
 </head>
@@ -99,11 +101,11 @@
 <!-- <script src="{{asset('assets/offline_cdnjs/jquery.sparkline.min.js')}}" type="text/javascript"></script> -->
 
 <!--select-->
-<script src="{{asset('assets/global/plugins/select2/select2.min.js')}}" type="text/javascript" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" type="text/javascript" ></script>
+<!-- <script src="{{asset('assets/global/plugins/select2/select2.min.js')}}" type="text/javascript" ></script> -->
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script type="text/javascript" src="{{mix('/js/metronic_layout.js')}}"></script>
- @stack('scripts')
 
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
@@ -112,7 +114,6 @@ $(function() {
 	Layout.init(); // init layout
 	Demo.init(); // init demo features 
 });
-
 var vm = new Vue({
 	el: "#top-menu",
 	methods: {
@@ -126,6 +127,7 @@ var vm = new Vue({
 	}
 })
 </script>
+@stack('scripts')
 <!-- END JAVASCRIPTS -->
 </body>
 <!-- END BODY -->

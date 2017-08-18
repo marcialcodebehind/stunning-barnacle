@@ -1,7 +1,17 @@
 <template lang="html">
 	 <div class="chat-composer">
-	 	<input type="text" placeholder="Type Message..." v-model="messageText" @keyup.enter="sendMessage">
-	 	<button type="button" class="btn btn-primary" @click="sendMessage">Send</button>
+	 	<div class="chat-form">
+			<div class="input-cont">
+				<input class="form-control" type="text" placeholder="Type a message here..." v-model="messageText" @keyup.enter="sendMessage" />
+			</div>
+			<div class="btn-cont">
+				<span class="arrow">
+				</span>
+				<button class="btn blue icn-only" @click="sendMessage">
+				<i class="fa fa-check icon-white"></i>
+				</button>
+			</div>
+		</div>
 	 </div>	
 </template>
 
@@ -18,7 +28,7 @@
 					this.$emit('messagesent', {
 						message: this.messageText,
 						user: {
-							name: 'Glenn'
+							name: username
 						}
 					});
 					this.messageText = '';
@@ -28,7 +38,7 @@
 	}
 </script>
 <style lang="css">
-	.chat-composer{
+	/*.chat-composer{
 		display: flex;
 	}
 
@@ -38,5 +48,5 @@
 
 	.chat-composer button {
 		border-radius: 0;
-	}
+	}*/
 </style>

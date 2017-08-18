@@ -1,7 +1,20 @@
 <template lang="html">
 	 <div class="chat-message">
-	 	<p>{{ message.message }}</p>
-	 	<small> - {{ message.user.name }}</small>
+	 	<li class="out">
+			<img class="avatar" alt="" src="assets/admin/layout/img/avatar1.jpg"/>
+			<div class="message">
+				<span class="arrow">
+				</span>
+				<a href="javascript:;" class="name">
+				{{ message.user.name }} 
+				</a>
+				<span class="datetime">
+				at 20:09 </span>
+				<span class="body">
+					{{ message.message }}
+				</span>
+			</div>
+		</li>
 	 </div>	
 </template>
 
@@ -11,10 +24,4 @@
 	}
 </script>
 <style lang="css">
-	.chat-message{
-		padding: 1rem;
-	}
-	.chat-message > p {
-		margin-bottom: .5rem;
-	}
 </style>
